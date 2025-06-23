@@ -1,0 +1,16 @@
+# Compiled classes
+target/
+*.class
+
+# Logs
+*.log
+
+# Maven
+*.iml
+.idea/
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
