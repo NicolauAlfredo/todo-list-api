@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt">
-    <head>
-        <meta charset="UTF-8" />
-        <title>ToDo List - Java API</title>
-        <link rel="stylesheet" href="style.css"/>
-    </head>
-    <body>
-        <h1>📋 Minha ToDo List</h1>
-        <input type="text" id="title" placeholder="Título da tarefa" />
-        <input type="text" id="description" placeholder="Descrição (opcional)" />
-        <button onclick="addTask()">Adicionar Tarefa</button>
+<head>
+  <meta charset="UTF-8" />
+  <title>ToDo List - Java API</title> 
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h1>📋 Minha ToDo List</h1>
 
-        <div id="tasks"></div>
+  <!-- Form para nova tarefa -->
+  <input type="text" id="title" placeholder="Título da tarefa" />
+  <input type="text" id="description" placeholder="Descrição (opcional)" />
+  <button onclick="addTask()">Adicionar Tarefa</button>
 
-        <script src="script.js"></script>
-    </body>
+  <h1>Lista de Tarefas</h1>
+  <div id="tasks"></div>
+
+  <script src="script.js"></script>
+</body>
 </html>

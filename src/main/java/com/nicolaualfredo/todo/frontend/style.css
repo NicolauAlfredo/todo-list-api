@@ -22,3 +22,7 @@ input, button {
     text-decoration: line-through;
     color: green;
 }
+
+.task-actions button {
+    margin-right: 5px;
+}
