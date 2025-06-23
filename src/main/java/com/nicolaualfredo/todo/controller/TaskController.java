@@ -9,8 +9,11 @@ import com.nicolaualfredo.todo.model.Task;
 import com.nicolaualfredo.todo.repository.TaskRepository;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
