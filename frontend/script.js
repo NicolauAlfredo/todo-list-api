@@ -23,18 +23,18 @@ async function fetchTasks() {
           <small>${task.description}</small><br>
           <div class="task-actions">
             <button onclick="toggleComplete(${task.id}, ${!task.completed})">
-              ${task.completed ? "Desmarcar" : "Concluir"}
+              ${task.completed ? "Unmark" : "Complete"}
             </button>
             <button onclick="showEditForm(${task.id}, '${escapeHtml(task.title)}', '${escapeHtml(task.description)}')">
-              ✏️ Editar
+              ✏️ Edit
             </button>
-            <button onclick="deleteTask(${task.id})">🗑 Excluir</button>
+            <button onclick="deleteTask(${task.id})">🗑 Delete</button>
           </div>
           <div id="edit-form-${task.id}" style="display:none; margin-top:10px;">
-            <input type="text" id="edit-title-${task.id}" value="${escapeHtml(task.title)}" placeholder="Título" />
-            <input type="text" id="edit-description-${task.id}" value="${escapeHtml(task.description)}" placeholder="Descrição" />
-            <button onclick="updateTask(${task.id})">Salvar</button>
-            <button onclick="hideEditForm(${task.id})">Cancelar</button>
+            <input type="text" id="edit-title-${task.id}" value="${escapeHtml(task.title)}" placeholder="Title" />
+            <input type="text" id="edit-description-${task.id}" value="${escapeHtml(task.description)}" placeholder="Description" />
+            <button onclick="updateTask(${task.id})">Save</button>
+            <button onclick="hideEditForm(${task.id})">Cancel</button>
           </div>
         `;
         container.appendChild(div);
@@ -53,7 +53,7 @@ async function addTask() {
     const description = document.getElementById("description").value;
 
     if (!title.trim())
-        return alert("Título obrigatório!");
+        return alert("Title is required!");
 
     await fetch(API_URL, {
         method: "POST",
@@ -67,14 +67,14 @@ async function addTask() {
 }
 
 async function toggleComplete(id, status) {
-    // Primeiro, buscar a tarefa atual para manter título e descrição
+    // First, fetch the current task to preserve title and description
     const res = await fetch(`${API_URL}/${id}`);
     if (!res.ok)
-        return alert("Erro ao buscar tarefa");
+        return alert("Error fetching task");
 
     const task = await res.json();
 
-    // Atualizar só o campo completed
+    // Only update the completed field
     await fetch(`${API_URL}/${id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
@@ -101,7 +101,7 @@ async function updateTask(id) {
     const description = document.getElementById(`edit-description-${id}`).value;
 
     if (!title.trim())
-        return alert("Título obrigatório!");
+        return alert("Title is required!");
 
     await fetch(`${API_URL}/${id}`, {
         method: "PUT",
