@@ -85,3 +85,6 @@ All tasks are stored in a local tasks.json file located in the root of the proje
 This file is automatically created if it does not exist, and is updated on every create, update, or delete operation.
 
 No external database is required.
+
+## Video Demo
+[▶ Watch the demo on YouTube](https://youtu.be/F8H28J41K8M)
